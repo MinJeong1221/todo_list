@@ -15,5 +15,10 @@ body {
   justify-content: center;
 }
 .App {
-  text-align: center;
+  margin: 32px;
+  padding: 32px;
+  min-width: 500px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: rgb(0, 0, 0, 50%) 0 0 10px;
 }

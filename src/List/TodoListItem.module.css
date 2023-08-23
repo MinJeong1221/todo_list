@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 16px 0;
+  padding: 8px;
+}
+.container:hover {
+  background-color: rgb(221, 221, 221);
+  transition: background-color 0s;
+}
+.container:hover .removeIcon {
+  visibility: visible;
+}
+.checkIcon {
+  font-size: 24px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.checkCircleIcon {
+  color: aquamarine;
+}
+.unCheckCircleIcon {
+  color: rgb(211, 211, 211);
+}
+.removeIcon {
+  font-size: 28px;
+  margin-left: auto;
+  cursor: pointer;
+  color: red;
+  visibility: hidden;
+}
+.linethorgh {
+  text-decoration: line-through;
+  color: #dcdcdc;
+}

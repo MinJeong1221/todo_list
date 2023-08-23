@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+}
+.formContainer {
+  display: flex;
+  flex: 1;
+}
+.todoInput {
+  flex: 1;
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px 0 0 5px;
+}
+.todoInputButton {
+  font-size: 20px;
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #c0c0c0;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.todoInputButton:hover {
+  background-color: var(--color-main);
+  color: white;
+}
