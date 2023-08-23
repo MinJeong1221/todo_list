@@ -2,25 +2,20 @@ import React from "react";
 import styles from "./TodoList.module.css";
 import TodoListItem from "./TodoListItem";
 import { TodoType } from "../Todo/todoReducer";
-interface TodoListProps {
-  todos: TodoType[];
-  onCircleClick: (id: number) => void;
-  onRemoveClick: (id: number) => void;
-}
+import { useTodoState } from "../Todo/TodoProvider";
 
-function TodoList(props: TodoListProps) {
+function TodoList() {
+  const todoStaet = useTodoState();
   return (
     <div>
       <ul className={styles.ulContainer}>
-        {props.todos.map((todo) => {
+        {todoStaet.todos.map((todo: TodoType) => {
           return (
             <TodoListItem
               key={todo.id}
               id={todo.id}
               text={todo.text}
               isChecked={todo.isChecked}
-              onCircleClick={props.onCircleClick}
-              onRemoveClick={props.onRemoveClick}
             />
           );
         })}

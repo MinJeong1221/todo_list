@@ -3,24 +3,45 @@ import styles from "./TodoListTools.module.css";
 import { BiCheckCircle } from "react-icons/bi";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BiRadioCircle } from "react-icons/bi";
+import { useTodoDistpatch, useTodoState } from "../Todo/TodoProvider";
 
-interface TodoListToolsProps {
-  isAllChecked: boolean;
-  onCircleAllClick: () => void;
-  onRemoveAllClick: () => void;
-}
+function TodoListTools() {
+  const todoState = useTodoState();
+  const todoDispatch = useTodoDistpatch();
 
-function TodoListTools(props: TodoListToolsProps) {
+  const isTodoAllChecked = () => {
+    return todoState.todos.every((todo) => todo.isChecked);
+  };
+  // const handleAllCircleClick = () => {
+  //   const isAllChecked = isTodoAllChecked();
+
+  //   todoDispatch({
+  //     type: "allChecked",
+  //     payload: isAllChecked,
+  //   });
+  // };
+
+  // const handleAllRemoveClick = () => {
+  //   todoDispatch({
+  //     type: "allRemove",
+  //   });
+  // };
+
   const handleCircleAllClick = () => {
-    props.onCircleAllClick();
+    todoDispatch({
+      type: "allChecked",
+      payload: isTodoAllChecked(),
+    });
   };
   const handleRemoveAllClick = () => {
-    props.onRemoveAllClick();
+    todoDispatch({
+      type: "allRemove",
+    });
   };
   return (
     <section className={styles.container}>
       <button className={styles.button} onClick={handleCircleAllClick}>
-        {props.isAllChecked ? (
+        {isTodoAllChecked() ? (
           <>
             <BiRadioCircle className={styles.checkAllIco} />
             전체해제

@@ -3,21 +3,32 @@ import styles from "./TodoListItem.module.css";
 
 import { BiCheckCircle } from "react-icons/bi";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
+import { useTodoDistpatch } from "../Todo/TodoProvider";
 
 interface TodoListItemProps {
   id: number;
   text: string;
   isChecked: boolean;
-  onCircleClick: (id: number) => void;
-  onRemoveClick: (id: number) => void;
 }
 
 function TodoListItem(props: TodoListItemProps) {
+  const todoDispatch = useTodoDistpatch();
+
   const handleCircleClick = () => {
-    props.onCircleClick(props.id);
+    todoDispatch({
+      type: "checked",
+      payload: {
+        id: props.id,
+      },
+    });
   };
   const handleRemoveClick = () => {
-    props.onRemoveClick(props.id);
+    todoDispatch({
+      type: "remove",
+      payload: {
+        id: props.id,
+      },
+    });
   };
   return (
     <li className={styles.container}>
